@@ -1,0 +1,18 @@
+function fn(pattern, template) {					function fn(pattern, template) {
+    switch (true) {						     |	    // if toType already exists do nothing
+        // if toType already exists				     |	    if (!pattern.toType) {
+        case !!pattern.toType:					     |	        if (template.test(pattern.to)) {
+            break;						     <
+        case template.test(pattern.to):				     <
+            pattern.toType = "template";				            pattern.toType = "template";
+            break;						     |	        } else if (isToDirectory) {
+        case isToDirectory:					     <
+            pattern.toType = "dir";					            pattern.toType = "dir";
+            break;						     |	        } else {
+        default:						     <
+            pattern.toType = "file";					            pattern.toType = "file";
+								     >	        }
+    }									    }
+}									}
+
+fn({}, /(?:)/);								fn({}, /(?:)/);
